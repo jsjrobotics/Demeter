@@ -16,17 +16,12 @@ class MainPresenter extends LifeCyclePresenter<MainView> {
 
     @Override
     public void onViewStateRestored(MainView view, Bundle inState) {
-
+        mView = view;
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
 
-    }
-
-    @Override
-    public void attachView(MainView view, Bundle inState) {
-        mView = view;
     }
 
     @Override

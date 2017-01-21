@@ -15,7 +15,6 @@ public abstract class  LifeCyclePresenter<ViewClass> {
 
 
     public abstract void onViewStateRestored(ViewClass view, Bundle inState);
-    public abstract void attachView(ViewClass view, Bundle savedInstanceState);
     public abstract void onSaveInstanceState(Bundle outState);
 
 }
