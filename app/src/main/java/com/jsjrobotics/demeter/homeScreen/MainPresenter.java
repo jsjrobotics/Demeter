@@ -10,10 +10,12 @@ import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
 
 class MainPresenter extends LifeCyclePresenter<MainView> {
     private final Supplier<Fragment> mContext;
+    private final MainModel mMainModel;
     private MainView mView;
 
     MainPresenter(Supplier<Fragment> context, Bundle savedInstanceState) {
         mContext = context;
+        mMainModel = new MainModel(mContext.get().getResources());
     }
 
     @Override
@@ -27,7 +29,7 @@ class MainPresenter extends LifeCyclePresenter<MainView> {
     @Override
     public void onResume() {
         mView.setLoading(true);
-        MainModel.loadHomeScreen(buildReceiver());
+        mMainModel.loadHomeScreen(buildReceiver());
     }
 
     private Receiver<DisplayableScreen> buildReceiver() {
