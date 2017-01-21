@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Demeter</string>
+    <string name="homescreen_filename">home_screen.txt</string>
+    <string name="homescreen_url">unknown</string>
+    <string name="detailscreen_filename">detail.txt</string>
+    <string name="detailscreen_url">unknown</string>
 </resources>
