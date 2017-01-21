@@ -14,6 +14,6 @@ public class DetailFragment extends DefaultFragment<DetailPresenter, DetailView>
 
     @Override
     protected DetailView buildView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
-        return null;
+        return new DetailView(inflater, viewGroup, savedInstanceState);
     }
 }

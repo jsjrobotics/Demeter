@@ -4,10 +4,12 @@ import android.os.Bundle;
 
 import com.jsjrobotics.demeter.androidWrappers.LifeCyclePresenter;
 
-public class DetailPresenter extends LifeCyclePresenter<DetailView> {
+class DetailPresenter extends LifeCyclePresenter<DetailView> {
+    private DetailView mView;
+
     @Override
     public void onViewStateRestored(DetailView view, Bundle inState) {
-
+        mView = view;
     }
 
     @Override

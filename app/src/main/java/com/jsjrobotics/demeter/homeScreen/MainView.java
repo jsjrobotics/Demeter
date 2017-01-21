@@ -13,7 +13,6 @@ class MainView implements DefaultView {
 
     MainView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
         mRoot = inflater.inflate(R.layout.main_view, viewGroup, false);
-        mRoot.setBackgroundColor(0xFFFF0000);
     }
 
     public View getLayout() {
