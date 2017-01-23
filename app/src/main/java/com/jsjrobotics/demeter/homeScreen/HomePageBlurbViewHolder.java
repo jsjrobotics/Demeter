@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jsjrobotics.demeter.R;
-import com.jsjrobotics.demeter.displayableScreens.HomepageBlurbDisplayItem;
+import com.jsjrobotics.demeter.dataStructures.HomepageBlurb;
 
 public class HomePageBlurbViewHolder extends RecyclerView.ViewHolder {
     private final TextView mTitle;
@@ -27,7 +27,7 @@ public class HomePageBlurbViewHolder extends RecyclerView.ViewHolder {
         return inflater.inflate(R.layout.home_page_blurb_view_holder,parent, false);
     }
 
-    public void setData(HomepageBlurbDisplayItem item) {
+    public void setData(HomepageBlurb item) {
         mTitle.setText(item.getTitle());
         mSummary.setText(item.getSummary());
     }

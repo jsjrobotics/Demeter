@@ -1,7 +1,9 @@
 package com.jsjrobotics.demeter.dataStructures;
 
 
-public class HomepageBlurb {
+import com.jsjrobotics.demeter.displayableScreens.DisplayItem;
+
+public class HomepageBlurb extends DisplayItem {
     private final String mTitle;
     private final String mSummary;
     private final String mImage;

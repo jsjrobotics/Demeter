@@ -1,6 +1,7 @@
 package com.jsjrobotics.demeter.homeScreen;
 
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +9,10 @@ import android.view.ViewGroup;
 
 import com.jsjrobotics.demeter.R;
 import com.jsjrobotics.demeter.androidWrappers.DefaultView;
-import com.jsjrobotics.demeter.displayableScreens.HomepageBlurbDisplayItem;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.jsjrobotics.demeter.dataStructures.HomepageBlurb;
 
 class MainView implements DefaultView {
+    private static final int HOMESCREEN_SPAN = 2;
     private final View mRoot;
     private final View mLoading;
     private final RecyclerView mLoaded;
@@ -27,6 +26,7 @@ class MainView implements DefaultView {
         mError = mRoot.findViewById(R.id.error);
         mAdapter = new HomePageAdapter();
         mLoaded.setAdapter(mAdapter);
+        mLoaded.setLayoutManager(new GridLayoutManager(mRoot.getContext(), HOMESCREEN_SPAN));
         setLoading(true);
     }
 
@@ -64,7 +64,7 @@ class MainView implements DefaultView {
         }
     }
 
-    public void addData(HomepageBlurbDisplayItem item) {
+    public void addData(HomepageBlurb item) {
         mAdapter.addData(item);
     }
 }

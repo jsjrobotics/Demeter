@@ -3,13 +3,13 @@ package com.jsjrobotics.demeter.homeScreen;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-import com.jsjrobotics.demeter.displayableScreens.HomepageBlurbDisplayItem;
+import com.jsjrobotics.demeter.dataStructures.HomepageBlurb;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomePageAdapter extends RecyclerView.Adapter<HomePageBlurbViewHolder> {
-    private List<HomepageBlurbDisplayItem> mList = new ArrayList<>();
+    private List<HomepageBlurb> mList = new ArrayList<>();
 
     @Override
     public HomePageBlurbViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -26,7 +26,7 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageBlurbViewHolde
         return mList.size();
     }
 
-    public void addData(HomepageBlurbDisplayItem item) {
+    public void addData(HomepageBlurb item) {
         mList.add(item);
         notifyDataSetChanged();
     }

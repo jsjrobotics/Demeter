@@ -1,6 +1,7 @@
 package com.jsjrobotics.demeter.dataStructures;
 
 import com.jsjrobotics.demeter.ImageUtils.BitmapInflater;
+import com.jsjrobotics.demeter.displayableScreens.DisplayItem;
 
 import java.util.List;
 
