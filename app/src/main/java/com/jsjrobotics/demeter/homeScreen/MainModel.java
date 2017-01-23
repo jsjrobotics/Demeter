@@ -4,6 +4,7 @@ package com.jsjrobotics.demeter.homeScreen;
 import android.content.Context;
 import android.content.res.Resources;
 
+import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.demeter.R;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
@@ -19,8 +20,11 @@ class MainModel {
         mResources = resources;
     }
 
-    private void loadContent(OfflineFirstResource resource, Receiver<DisplayableScreen> content) {
-
+    private void loadContent(final OfflineFirstResource resource, final Receiver<Optional<DisplayableScreen>> listener) {
+        Thread t = new Thread(() -> {
+            resource.getContent(listener);
+        });
+        t.start();
     }
 
     private OfflineFirstResource buildHomescreenResource() {
@@ -29,7 +33,7 @@ class MainModel {
         return new HomeScreenResource(mContext, filename, url);
     }
 
-    void loadHomeScreen(Receiver<DisplayableScreen> receiver) {
+    void loadHomeScreen(Receiver<Optional<DisplayableScreen>> receiver) {
         loadContent(buildHomescreenResource(), receiver);
     }
 }

@@ -2,6 +2,8 @@ package com.jsjrobotics.demeter.detailScreen;
 
 import android.support.annotation.Nullable;
 
+import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
+import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
 import com.jsjrobotics.demeter.dataStructures.resources.OfflineFirstResource;
 
@@ -26,8 +28,8 @@ class DetailScreenResource extends OfflineFirstResource {
 
     @Nullable
     @Override
-    protected DisplayableScreen loadOnlineContent() {
-        return null;
+    protected void loadOnlineContent(Receiver<Optional<DisplayableScreen>> listener) {
+
     }
 
     @Nullable

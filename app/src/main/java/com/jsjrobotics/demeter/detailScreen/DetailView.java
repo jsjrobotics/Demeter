@@ -24,4 +24,14 @@ class DetailView implements DefaultView {
     public void saveInstanceState(Bundle outState) {
 
     }
+
+    @Override
+    public void setLoading(boolean isLoading) {
+
+    }
+
+    @Override
+    public void setError(boolean displayErrorScreen) {
+
+    }
 }

@@ -8,22 +8,22 @@ import com.jsjrobotics.demeter.displayableScreens.HomepageBlurbDisplayItem;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePageAdapter extends RecyclerView.Adapter {
+public class HomePageAdapter extends RecyclerView.Adapter<HomePageBlurbViewHolder> {
     private List<HomepageBlurbDisplayItem> mList = new ArrayList<>();
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return null;
+    public HomePageBlurbViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new HomePageBlurbViewHolder(parent);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
+    public void onBindViewHolder(HomePageBlurbViewHolder holder, int position) {
+        holder.setData(mList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mList.size();
     }
 
     public void addData(HomepageBlurbDisplayItem item) {

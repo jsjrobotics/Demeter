@@ -3,6 +3,8 @@ package com.jsjrobotics.demeter.homeScreen;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
+import com.jsjrobotics.defaultTemplate.lifecycle.appCompat.DefaultAppCompatLifecycleFragment;
+import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Supplier;
 import com.jsjrobotics.demeter.androidWrappers.LifeCyclePresenter;
@@ -35,13 +37,17 @@ class MainPresenter extends LifeCyclePresenter<MainView> {
         mMainModel.loadHomeScreen(buildReceiver());
     }
 
-    private Receiver<DisplayableScreen> buildReceiver() {
-        return screen -> {
-            for (DisplayItem displayItem : screen.getContent()) {
-                displayItem.transform(item -> {
-                    mView.addData(item);
+    private Receiver<Optional<DisplayableScreen>> buildReceiver() {
+        return result -> {
+            result.ifPresent( screen -> {
+                DefaultAppCompatLifecycleFragment.runOnUiThread(mContext.get(), () -> {
+                    for (DisplayItem displayItem : screen.getContent()) {
+                        displayItem.transform(item -> {
+                            mView.addData(item);
+                        });
+                    }
                 });
-            }
+            });
         };
     }
 

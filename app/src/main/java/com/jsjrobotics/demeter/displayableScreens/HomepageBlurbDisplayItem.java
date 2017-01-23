@@ -9,4 +9,12 @@ public class HomepageBlurbDisplayItem extends DisplayItem {
     public HomepageBlurbDisplayItem(HomepageBlurb data) throws IllegalArgumentException{
         mData = data;
     }
+
+    public String getTitle() {
+        return mData.getTitle();
+    }
+
+    public String getSummary() {
+        return mData.getSummary();
+    }
 }
