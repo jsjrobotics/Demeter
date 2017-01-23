@@ -5,11 +5,16 @@ import com.jsjrobotics.demeter.ImageUtils.BitmapInflater;
 import java.util.List;
 
 public class DisplayableScreen {
-    private BitmapInflater imageInflater;
-    private List<DisplayItem> mContent;
+    protected final BitmapInflater mImageInflater;
+    protected final List<DisplayItem> mContent;
+
+    protected DisplayableScreen (BitmapInflater inflater, List<DisplayItem> content) {
+        mImageInflater = inflater;
+        mContent = content;
+    }
 
     public BitmapInflater getHeaderInflater() {
-        return imageInflater;
+        return mImageInflater;
     }
 
     public List<DisplayItem> getContent() {

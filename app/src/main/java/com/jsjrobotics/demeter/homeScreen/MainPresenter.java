@@ -6,7 +6,10 @@ import android.support.v4.app.Fragment;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Supplier;
 import com.jsjrobotics.demeter.androidWrappers.LifeCyclePresenter;
+import com.jsjrobotics.demeter.dataStructures.DisplayItem;
+import com.jsjrobotics.demeter.dataStructures.DisplayTransformer;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
+import com.jsjrobotics.demeter.displayableScreens.HomepageBlurbDisplayItem;
 
 class MainPresenter extends LifeCyclePresenter<MainView> {
     private final Supplier<Fragment> mContext;
@@ -15,7 +18,7 @@ class MainPresenter extends LifeCyclePresenter<MainView> {
 
     MainPresenter(Supplier<Fragment> context, Bundle savedInstanceState) {
         mContext = context;
-        mMainModel = new MainModel(mContext.get().getResources());
+        mMainModel = new MainModel(mContext.get().getContext(), mContext.get().getResources());
     }
 
     @Override
@@ -33,7 +36,13 @@ class MainPresenter extends LifeCyclePresenter<MainView> {
     }
 
     private Receiver<DisplayableScreen> buildReceiver() {
-        return null;
+        return screen -> {
+            for (DisplayItem displayItem : screen.getContent()) {
+                displayItem.transform(item -> {
+                    mView.addData(item);
+                });
+            }
+        };
     }
 
 
