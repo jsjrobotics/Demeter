@@ -11,18 +11,18 @@ import com.jsjrobotics.demeter.androidWrappers.LifeCyclePresenter;
 import com.jsjrobotics.demeter.displayableScreens.DisplayItem;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
 
-class MainPresenter extends LifeCyclePresenter<MainView> {
+class HomeScreenPresenter extends LifeCyclePresenter<HomeScreenView> {
     private final Supplier<Fragment> mContext;
-    private final MainModel mMainModel;
-    private MainView mView;
+    private final HomeScreenModel mHomeScreenModel;
+    private HomeScreenView mView;
 
-    MainPresenter(Supplier<Fragment> context, Bundle savedInstanceState) {
+    HomeScreenPresenter(Supplier<Fragment> context, Bundle savedInstanceState) {
         mContext = context;
-        mMainModel = new MainModel(mContext.get().getContext(), mContext.get().getResources());
+        mHomeScreenModel = new HomeScreenModel(mContext.get().getContext());
     }
 
     @Override
-    public void onViewStateRestored(MainView view, Bundle inState) {
+    public void onViewStateRestored(HomeScreenView view, Bundle inState) {
         mView = view;
     }
 
@@ -32,7 +32,7 @@ class MainPresenter extends LifeCyclePresenter<MainView> {
     @Override
     public void onResume() {
         mView.setLoading(true);
-        mMainModel.loadHomeScreen(buildReceiver());
+        mHomeScreenModel.loadHomeScreen(buildReceiver());
     }
 
     private Receiver<Optional<DisplayableScreen>> buildReceiver() {

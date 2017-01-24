@@ -11,7 +11,7 @@ import com.jsjrobotics.demeter.R;
 import com.jsjrobotics.demeter.androidWrappers.DefaultView;
 import com.jsjrobotics.demeter.dataStructures.HomepageBlurb;
 
-class MainView implements DefaultView {
+class HomeScreenView implements DefaultView {
     private static final int HOMESCREEN_SPAN = 2;
     private final View mRoot;
     private final View mLoading;
@@ -19,7 +19,7 @@ class MainView implements DefaultView {
     private final View mError;
     private final HomePageAdapter mAdapter;
 
-    MainView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
+    HomeScreenView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
         mRoot = inflater.inflate(R.layout.main_view, viewGroup, false);
         mLoading = mRoot.findViewById(R.id.loading);
         mLoaded = (RecyclerView) mRoot.findViewById(R.id.content);

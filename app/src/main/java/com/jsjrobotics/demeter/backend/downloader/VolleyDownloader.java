@@ -5,37 +5,35 @@ import android.content.Context;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.demeter.R;
 
 
-public class HomepageApi {
+public class VolleyDownloader {
 
     private final RequestQueue mRequestQueue;
-    private final String mBaseUrl;
 
-    public HomepageApi(Context context){
+    public VolleyDownloader(Context context){
         mRequestQueue = Volley.newRequestQueue(context);
-        mBaseUrl = context.getString(R.string.base_url);
     }
 
-    public void downloadData(String urlPath, Receiver<HomepageResponse> listener) {
+    public void downloadData(String url, Receiver<Optional<String>> listener) {
         StringRequest request = new StringRequest(
                 Request.Method.GET,
-                mBaseUrl + urlPath,
-                buildSuccessListener(listener),
+                url,
+                response -> listener.accept(Optional.of(response)),
                 buildErrorListener(listener)
         );
         mRequestQueue.add(request);
     }
 
-    private Response.ErrorListener buildErrorListener(Receiver<HomepageResponse> listener) {
+    private Response.ErrorListener buildErrorListener(Receiver<Optional<String>> listener) {
         return volleyError -> {
             volleyError.printStackTrace();
-            listener.accept(HomepageResponse.emptyResponse());
+            listener.accept(Optional.empty());
         };
     }
 

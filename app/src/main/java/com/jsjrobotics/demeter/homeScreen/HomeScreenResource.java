@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
+import com.jsjrobotics.demeter.R;
 import com.jsjrobotics.demeter.backend.downloader.HomepageApi;
 import com.jsjrobotics.demeter.backend.downloader.HomepageResponse;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
@@ -15,13 +16,13 @@ import com.jsjrobotics.demeter.displayableScreens.HomepageBlurbScreen;
 import java.util.List;
 
 class HomeScreenResource extends OfflineFirstResource {
-    private final String mFilename;
-    private final String mUrl;
     private final Context mContext;
+    private final String mFilename;
+    private final String mUrlPath;
 
-    HomeScreenResource(Context context, String filename, String url) {
-        mFilename = filename;
-        mUrl = url;
+    HomeScreenResource(Context context) {
+        mFilename = context.getString(R.string.homescreen_filename);
+        mUrlPath = context.getString(R.string.homescreen_url);
         mContext = context;
     }
 
@@ -29,7 +30,7 @@ class HomeScreenResource extends OfflineFirstResource {
     @Nullable
     @Override
     protected void loadOnlineContent(final Receiver<Optional<DisplayableScreen>> listener) {
-        new HomepageApi(mContext).downloadData(buildHomepageReceiver(listener));
+        new HomepageApi(mContext).downloadData(mUrlPath, buildHomepageReceiver(listener));
     }
 
     private Receiver<HomepageResponse> buildHomepageReceiver(final Receiver<Optional<DisplayableScreen>> listener) {
@@ -59,7 +60,7 @@ class HomeScreenResource extends OfflineFirstResource {
 
     @Override
     public String getUrl() {
-        return mUrl;
+        return mUrlPath;
     }
 
 }

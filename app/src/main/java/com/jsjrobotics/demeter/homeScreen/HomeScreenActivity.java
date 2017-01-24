@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.jsjrobotics.defaultTemplate.lifecycle.AppCompatNavigationManager;
 import com.jsjrobotics.demeter.R;
 
-public class MainActivity extends AppCompatActivity {
+public class HomeScreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
             AppCompatNavigationManager.displayFragment(
                     this,
                     R.id.content,
-                    new MainFragment(),
+                    new HomeScreenFragment(),
                     null
             );
         }
