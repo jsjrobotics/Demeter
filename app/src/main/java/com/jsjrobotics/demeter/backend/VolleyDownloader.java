@@ -1,4 +1,4 @@
-package com.jsjrobotics.demeter.backend.downloader;
+package com.jsjrobotics.demeter.backend;
 
 import android.content.Context;
 
@@ -9,7 +9,6 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
-import com.jsjrobotics.demeter.R;
 
 
 public class VolleyDownloader {
@@ -20,7 +19,7 @@ public class VolleyDownloader {
         mRequestQueue = Volley.newRequestQueue(context);
     }
 
-    public void downloadData(String url, Receiver<Optional<String>> listener) {
+    public void downloadData(final String url, final Receiver<Optional<String>> listener) {
         StringRequest request = new StringRequest(
                 Request.Method.GET,
                 url,
@@ -30,7 +29,19 @@ public class VolleyDownloader {
         mRequestQueue.add(request);
     }
 
-    private Response.ErrorListener buildErrorListener(Receiver<Optional<String>> listener) {
+    public void downloadData(final String url,
+                             final Response.Listener<String> successListener,
+                             final Response.ErrorListener failureListener) {
+        StringRequest request = new StringRequest(
+                Request.Method.GET,
+                url,
+                successListener,
+                failureListener
+        );
+        mRequestQueue.add(request);
+    }
+
+    private Response.ErrorListener buildErrorListener(final Receiver<Optional<String>> listener) {
         return volleyError -> {
             volleyError.printStackTrace();
             listener.accept(Optional.empty());

@@ -1,4 +1,4 @@
-package com.jsjrobotics.demeter.detailScreen;
+package com.jsjrobotics.demeter.dataStructures.resources;
 
 import android.support.annotation.Nullable;
 
@@ -7,11 +7,11 @@ import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
 import com.jsjrobotics.demeter.dataStructures.resources.OfflineFirstResource;
 
-class DetailScreenResource extends OfflineFirstResource {
+public class DetailScreenResource extends OfflineFirstResource {
     private final String mFilename;
     private final String mUrl;
 
-    DetailScreenResource(String filename, String url) {
+    public DetailScreenResource(String filename, String url) {
         mFilename = filename;
         mUrl = url;
     }
@@ -34,7 +34,7 @@ class DetailScreenResource extends OfflineFirstResource {
 
     @Nullable
     @Override
-    protected DisplayableScreen loadOfflineContent() {
+    protected Optional<DisplayableScreen> loadOfflineContent() {
         return null;
     }
 }

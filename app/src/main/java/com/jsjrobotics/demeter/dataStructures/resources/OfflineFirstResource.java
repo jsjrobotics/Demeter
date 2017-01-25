@@ -1,8 +1,6 @@
 package com.jsjrobotics.demeter.dataStructures.resources;
 
 
-import android.support.annotation.Nullable;
-
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
@@ -10,7 +8,7 @@ import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
 public abstract class OfflineFirstResource implements DualSourceResource {
     @Override
     public void getContent(Receiver<Optional<DisplayableScreen>> listener) {
-        Optional<DisplayableScreen> offline = Optional.ofNullable(loadOfflineContent());
+        Optional<DisplayableScreen> offline = loadOfflineContent();
         if (offline.isPresent()) {
             listener.accept(offline);
             return;
@@ -18,7 +16,7 @@ public abstract class OfflineFirstResource implements DualSourceResource {
         loadOnlineContent(listener);
     }
 
-    protected abstract @Nullable void loadOnlineContent(Receiver<Optional<DisplayableScreen>> listener);
+    protected abstract void loadOnlineContent(Receiver<Optional<DisplayableScreen>> listener);
 
-    protected abstract @Nullable DisplayableScreen loadOfflineContent();
+    protected abstract Optional<DisplayableScreen> loadOfflineContent();
 }

@@ -1,25 +1,30 @@
-package com.jsjrobotics.demeter.backend.downloader;
+package com.jsjrobotics.demeter.backend;
 
 import android.content.Context;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
+import com.jsjrobotics.demeter.FileUtils;
 import com.jsjrobotics.demeter.R;
+import com.jsjrobotics.demeter.dataStructures.resources.HomeScreenResource;
+
+import java.io.File;
 
 
 public class HomepageApi {
 
     private final RequestQueue mRequestQueue;
     private final String mBaseUrl;
+    private final File mSaveFile;
 
     public HomepageApi(Context context){
         mRequestQueue = Volley.newRequestQueue(context);
         mBaseUrl = context.getString(R.string.base_url);
+        mSaveFile = new HomeScreenResource(context).getFile();
     }
 
     public void downloadData(String urlPath, Receiver<HomepageResponse> listener) {
@@ -42,6 +47,9 @@ public class HomepageApi {
     private Response.Listener<String> buildSuccessListener(final Receiver<HomepageResponse> listener) {
         return response -> {
             HomepageResponse result = HomepageResponse.parse(response);
+            if (result.getSuccess()) {
+                FileUtils.writeToFile(mSaveFile, response);
+            }
             listener.accept(result);
         };
     }

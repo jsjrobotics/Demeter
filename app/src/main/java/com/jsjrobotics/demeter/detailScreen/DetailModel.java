@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.demeter.R;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
+import com.jsjrobotics.demeter.dataStructures.resources.DetailScreenResource;
 import com.jsjrobotics.demeter.dataStructures.resources.OfflineFirstResource;
 
 class DetailModel {

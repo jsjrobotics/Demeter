@@ -1,4 +1,4 @@
-package com.jsjrobotics.demeter.backend.downloader;
+package com.jsjrobotics.demeter.backend;
 
 import com.jsjrobotics.demeter.dataStructures.HomepageBlurb;
 
@@ -32,7 +32,7 @@ public class HomepageResponse {
         return mResult;
     }
 
-    static HomepageResponse parse(String response) {
+    public static HomepageResponse parse(String response) {
         try {
             JSONObject json = new JSONObject(response);
             boolean success = json.getBoolean(JSON_SUCCESS);
