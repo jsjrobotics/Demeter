@@ -3,7 +3,6 @@ package com.jsjrobotics.demeter.homeScreen.android;
 import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
-
 import com.jsjrobotics.demeter.homeScreen.HomepageBlurb;
 
 import java.util.ArrayList;

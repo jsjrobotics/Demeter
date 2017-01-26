@@ -1,8 +1,6 @@
 package com.jsjrobotics.demeter.dataStructures.resources;
 
 
-import android.support.annotation.Nullable;
-
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;

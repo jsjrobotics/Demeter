@@ -7,10 +7,10 @@ import android.support.annotation.Nullable;
 
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
-import com.jsjrobotics.demeter.Utils.FileUtils;
 import com.jsjrobotics.demeter.R;
-import com.jsjrobotics.demeter.dataStructures.resources.OnlineFirstResource;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
+import com.jsjrobotics.demeter.dataStructures.resources.OnlineFirstResource;
+import com.jsjrobotics.demeter.utils.FileUtils;
 
 import java.io.File;
 import java.util.List;

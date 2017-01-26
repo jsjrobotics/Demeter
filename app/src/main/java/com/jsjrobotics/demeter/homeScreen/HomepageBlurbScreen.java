@@ -3,9 +3,9 @@ package com.jsjrobotics.demeter.homeScreen;
 import android.graphics.Bitmap;
 
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
-import com.jsjrobotics.demeter.Utils.BitmapInflater;
-import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
 import com.jsjrobotics.demeter.dataStructures.DisplayItem;
+import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
+import com.jsjrobotics.demeter.utils.BitmapInflater;
 
 import java.util.ArrayList;
 import java.util.List;
