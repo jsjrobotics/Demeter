@@ -1,8 +1,8 @@
-package com.jsjrobotics.demeter.dataStructures;
+package com.jsjrobotics.demeter.homeScreen;
 
 
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
-import com.jsjrobotics.demeter.displayableScreens.DisplayItem;
+import com.jsjrobotics.demeter.dataStructures.DisplayItem;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -9,6 +9,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
+import com.jsjrobotics.demeter.homeScreen.HomepageResponse;
 
 
 public class VolleyDownloader {

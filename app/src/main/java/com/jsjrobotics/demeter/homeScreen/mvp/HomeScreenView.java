@@ -1,4 +1,4 @@
-package com.jsjrobotics.demeter.homeScreen;
+package com.jsjrobotics.demeter.homeScreen.mvp;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,9 +9,10 @@ import android.view.ViewGroup;
 
 import com.jsjrobotics.demeter.R;
 import com.jsjrobotics.demeter.androidWrappers.DefaultView;
-import com.jsjrobotics.demeter.dataStructures.HomepageBlurb;
+import com.jsjrobotics.demeter.homeScreen.HomepageBlurb;
+import com.jsjrobotics.demeter.homeScreen.android.HomePageAdapter;
 
-class HomeScreenView implements DefaultView {
+public class HomeScreenView implements DefaultView {
     private static final int HOMESCREEN_SPAN = 2;
     private final View mRoot;
     private final View mLoading;
@@ -19,7 +20,7 @@ class HomeScreenView implements DefaultView {
     private final View mError;
     private final HomePageAdapter mAdapter;
 
-    HomeScreenView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
+    public HomeScreenView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState) {
         mRoot = inflater.inflate(R.layout.main_view, viewGroup, false);
         mLoading = mRoot.findViewById(R.id.loading);
         mLoaded = (RecyclerView) mRoot.findViewById(R.id.content);

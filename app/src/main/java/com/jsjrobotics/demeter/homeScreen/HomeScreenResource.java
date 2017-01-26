@@ -1,4 +1,4 @@
-package com.jsjrobotics.demeter.dataStructures.resources;
+package com.jsjrobotics.demeter.homeScreen;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -7,17 +7,12 @@ import android.support.annotation.Nullable;
 
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
-import com.jsjrobotics.demeter.FileUtils;
+import com.jsjrobotics.demeter.Utils.FileUtils;
 import com.jsjrobotics.demeter.R;
-import com.jsjrobotics.demeter.backend.HomepageApi;
-import com.jsjrobotics.demeter.backend.HomepageResponse;
+import com.jsjrobotics.demeter.dataStructures.resources.OnlineFirstResource;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
-import com.jsjrobotics.demeter.dataStructures.HomepageBlurb;
-import com.jsjrobotics.demeter.displayableScreens.HomepageBlurbScreen;
 
-import java.io.BufferedInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.util.List;
 
 public class HomeScreenResource extends OnlineFirstResource {

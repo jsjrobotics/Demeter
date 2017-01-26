@@ -1,4 +1,4 @@
-package com.jsjrobotics.demeter.ImageUtils;
+package com.jsjrobotics.demeter.Utils;
 
 import android.graphics.Bitmap;
 

@@ -1,6 +1,4 @@
-package com.jsjrobotics.demeter.backend;
-
-import com.jsjrobotics.demeter.dataStructures.HomepageBlurb;
+package com.jsjrobotics.demeter.homeScreen;
 
 import org.json.JSONArray;
 import org.json.JSONException;

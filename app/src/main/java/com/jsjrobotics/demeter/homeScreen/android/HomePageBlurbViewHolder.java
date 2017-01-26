@@ -1,4 +1,4 @@
-package com.jsjrobotics.demeter.homeScreen;
+package com.jsjrobotics.demeter.homeScreen.android;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.jsjrobotics.demeter.R;
-import com.jsjrobotics.demeter.dataStructures.HomepageBlurb;
+import com.jsjrobotics.demeter.homeScreen.HomepageBlurb;
 
 public class HomePageBlurbViewHolder extends RecyclerView.ViewHolder {
     private final TextView mTitle;

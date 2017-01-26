@@ -1,4 +1,4 @@
-package com.jsjrobotics.demeter.backend;
+package com.jsjrobotics.demeter.homeScreen;
 
 import android.content.Context;
 
@@ -8,11 +8,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
-import com.jsjrobotics.demeter.FileUtils;
 import com.jsjrobotics.demeter.R;
-import com.jsjrobotics.demeter.dataStructures.resources.HomeScreenResource;
-
-import java.io.File;
 
 
 public class HomepageApi {

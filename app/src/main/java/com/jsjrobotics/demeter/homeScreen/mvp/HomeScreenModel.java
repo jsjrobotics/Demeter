@@ -1,4 +1,4 @@
-package com.jsjrobotics.demeter.homeScreen;
+package com.jsjrobotics.demeter.homeScreen.mvp;
 
 
 import android.content.Context;
@@ -7,7 +7,7 @@ import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 import com.jsjrobotics.defaultTemplate.lifecycle.functional.Receiver;
 import com.jsjrobotics.demeter.dataStructures.DisplayableScreen;
 import com.jsjrobotics.demeter.dataStructures.resources.DualSourceResource;
-import com.jsjrobotics.demeter.dataStructures.resources.HomeScreenResource;
+import com.jsjrobotics.demeter.homeScreen.HomeScreenResource;
 
 class HomeScreenModel {
 
