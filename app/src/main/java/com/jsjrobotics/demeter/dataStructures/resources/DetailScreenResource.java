@@ -28,13 +28,13 @@ public class DetailScreenResource extends OfflineFirstResource {
 
     @Nullable
     @Override
-    protected void loadOnlineContent(Receiver<Optional<DisplayableScreen>> listener) {
+    public void loadOnlineContent(Receiver<Optional<DisplayableScreen>> listener) {
 
     }
 
     @Nullable
     @Override
-    protected Optional<DisplayableScreen> loadOfflineContent() {
+    public Optional<DisplayableScreen> loadOfflineContent() {
         return null;
     }
 }

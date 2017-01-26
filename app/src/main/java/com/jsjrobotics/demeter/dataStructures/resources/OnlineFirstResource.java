@@ -15,11 +15,7 @@ public abstract class OnlineFirstResource implements DualSourceResource {
                 listener.accept(onlineData);
                 return;
             }
-            listener.accept(Optional.of(loadOfflineContent()));
+            listener.accept(loadOfflineContent());
         });
     }
-
-    protected abstract @Nullable void loadOnlineContent(Receiver<Optional<DisplayableScreen>> listener);
-
-    protected abstract @Nullable DisplayableScreen loadOfflineContent();
 }

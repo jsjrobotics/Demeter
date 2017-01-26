@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.List;
 
-public class HomeScreenResource extends OfflineFirstResource {
+public class HomeScreenResource extends OnlineFirstResource {
     private final Context mContext;
     private final String mFilename;
     private final String mUrlPath;
@@ -41,7 +41,7 @@ public class HomeScreenResource extends OfflineFirstResource {
 
     @Nullable
     @Override
-    protected void loadOnlineContent(final Receiver<Optional<DisplayableScreen>> listener) {
+    public void loadOnlineContent(final Receiver<Optional<DisplayableScreen>> listener) {
         if (isOnline()) {
             new HomepageApi(mContext).downloadData(mUrlPath, buildHomepageReceiver(listener));
         } else {
@@ -52,6 +52,7 @@ public class HomeScreenResource extends OfflineFirstResource {
     private Receiver<HomepageResponse> buildHomepageReceiver(final Receiver<Optional<DisplayableScreen>> listener) {
         return response -> {
             if (response.getSuccess()) {
+                FileUtils.writeToFile(getFile(), response.getJson());
                 listener.accept(Optional.of(buildDisplayableScreen(response.getResult())));
                 return;
             }
@@ -65,7 +66,7 @@ public class HomeScreenResource extends OfflineFirstResource {
 
     @Nullable
     @Override
-    protected Optional<DisplayableScreen> loadOfflineContent() {
+    public Optional<DisplayableScreen> loadOfflineContent() {
         File offline = getFile();
         if (!offline.exists()) {
             return Optional.empty();
@@ -73,7 +74,9 @@ public class HomeScreenResource extends OfflineFirstResource {
         Optional<String> offlineJson = FileUtils.readFile(getFile());
         if (offlineJson.isPresent()) {
             HomepageResponse result = HomepageResponse.parse(offlineJson.get());
-            return Optional.of(buildDisplayableScreen(result.getResult()));
+            if (!result.getResult().isEmpty()) {
+                return Optional.of(buildDisplayableScreen(result.getResult()));
+            }
         }
         return Optional.empty();
     }

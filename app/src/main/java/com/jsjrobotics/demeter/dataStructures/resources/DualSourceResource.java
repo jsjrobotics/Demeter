@@ -9,4 +9,6 @@ public interface DualSourceResource {
     String getFilename();
     String getUrl();
     void getContent(Receiver<Optional<DisplayableScreen>> listener);
+    void loadOnlineContent(Receiver<Optional<DisplayableScreen>> listener);
+    Optional<DisplayableScreen> loadOfflineContent();
 }

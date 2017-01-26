@@ -19,12 +19,10 @@ public class HomepageApi {
 
     private final RequestQueue mRequestQueue;
     private final String mBaseUrl;
-    private final File mSaveFile;
 
     public HomepageApi(Context context){
         mRequestQueue = Volley.newRequestQueue(context);
         mBaseUrl = context.getString(R.string.base_url);
-        mSaveFile = new HomeScreenResource(context).getFile();
     }
 
     public void downloadData(String urlPath, Receiver<HomepageResponse> listener) {
@@ -47,9 +45,6 @@ public class HomepageApi {
     private Response.Listener<String> buildSuccessListener(final Receiver<HomepageResponse> listener) {
         return response -> {
             HomepageResponse result = HomepageResponse.parse(response);
-            if (result.getSuccess()) {
-                FileUtils.writeToFile(mSaveFile, response);
-            }
             listener.accept(result);
         };
     }

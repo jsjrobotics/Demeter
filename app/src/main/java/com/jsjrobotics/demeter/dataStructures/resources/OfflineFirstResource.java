@@ -16,7 +16,5 @@ public abstract class OfflineFirstResource implements DualSourceResource {
         loadOnlineContent(listener);
     }
 
-    protected abstract void loadOnlineContent(Receiver<Optional<DisplayableScreen>> listener);
 
-    protected abstract Optional<DisplayableScreen> loadOfflineContent();
 }

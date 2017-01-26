@@ -4,23 +4,25 @@ import com.jsjrobotics.defaultTemplate.lifecycle.functional.Optional;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class FileUtils {
     private static final int ONE_KILOBYTE = 1024;
 
     public static Optional<String> readFile(File file) {
-        byte[] buffer = new byte[ONE_KILOBYTE];
-        FileInputStream fileStream = null;
-        BufferedInputStream inputStream = null;
+        char[] buffer = new char[ONE_KILOBYTE];
+        FileReader fileStream = null;
+        BufferedReader inputStream = null;
         StringBuilder result = new StringBuilder();
         try {
-            fileStream = new FileInputStream(file);
-            inputStream = new BufferedInputStream(fileStream);
+            fileStream = new FileReader(file);
+            inputStream = new BufferedReader(fileStream);
             int read = 0;
             while (read != -1) {
                 read = inputStream.read(buffer);
